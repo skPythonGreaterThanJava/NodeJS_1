@@ -15,3 +15,13 @@ apiServer.get(sauce, (request, response)=>{
 apiServer.get("/nome", (request, response)=>{
     response.send('<h1>Sesana</h1>');
 });
+
+apiServer.get("/mioNome", (request, response)=>{
+    response.send('Ciao, il tuo nome è: ' + request.query.nome);
+});
+
+apiServer.get("/somma", (request, response)=>{
+    var a = parseInt(request.query.a);
+    var b = parseInt(request.query.b);
+    response.send('La somma è: ' + (a + b));
+});
