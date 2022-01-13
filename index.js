@@ -13,8 +13,9 @@ apiServer.get(sauce, (request, response)=>{
     response.send('<h1>ciao</h1>');
 });
 
-apiServer.get("/nome", (request, response)=>{
-    response.send('<h1>Sesana</h1>');
+apiServer.post("/nome", (request, response)=>{
+    response.setHeader("Content-Type", "application/json");
+    response.json(JSON.stringify({"nome": "gianni"}));
 });
 
 apiServer.get("/mioNome", (request, response)=>{
@@ -24,7 +25,8 @@ apiServer.get("/mioNome", (request, response)=>{
 apiServer.get("/somma", (request, response)=>{
     var a = parseInt(request.query.a);
     var b = parseInt(request.query.b);
-    response.send('La somma è: ' + (a + b));
+    response.setHeader("Content-Type", "application/json");
+    response.send(JSON.stringify({'somma': (a + b)}));
 });
 
 apiServer.get("/student", (request, response)=>{
